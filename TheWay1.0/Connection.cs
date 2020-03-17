@@ -10,7 +10,7 @@ namespace TheWay1._0
     {
         public static string GetStringConnection()
         {
-            return @"Data Source=DESKTOP-C03A2E6\SQLEXPRESS;Initial Catalog=TheWay;Integrated Security=True";
+            return @"Data Source=DESKTOP-C03A2E6\SQLEXPRESS;Initial Catalog=TheWay2;Integrated Security=True";
         }
     }
 }

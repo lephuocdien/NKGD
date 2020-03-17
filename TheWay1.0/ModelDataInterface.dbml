@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TheWay" Class="ModelDataInterfaceDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=SA2WKS0265\SQLEXPRESS;Initial Catalog=TheWay;Integrated Security=True" SettingsObjectName="TheWay1._0.Properties.Settings" SettingsPropertyName="TheWayConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TheWay2" Class="ModelDataInterfaceDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-C03A2E6\SQLEXPRESS;Initial Catalog=TheWay2;Integrated Security=True" SettingsObjectName="TheWay1._0.Properties.Settings" SettingsPropertyName="TheWay2ConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.PAIR" Member="PAIRs">
     <Type Name="PAIR">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -27,6 +27,7 @@
       <Column Name="NoteOpen" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="NoteClosed" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="IdResult" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImageBinaryClose" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="PAIR_POSITION" Member="PAIR" ThisKey="IdPair" OtherKey="ID" Type="PAIR" IsForeignKey="true" />
       <Association Name="STATUSS_POSITION" Member="STATUSS" ThisKey="IdStatus" OtherKey="ID" Type="STATUSS" IsForeignKey="true" />
       <Association Name="RESULT_POSITION" Member="RESULT" ThisKey="IdResult" OtherKey="ID" Type="RESULT" IsForeignKey="true" />

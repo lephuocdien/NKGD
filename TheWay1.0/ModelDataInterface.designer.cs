@@ -22,7 +22,7 @@ namespace TheWay1._0
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TheWay")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TheWay2")]
 	public partial class ModelDataInterfaceDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -45,7 +45,7 @@ namespace TheWay1._0
     #endregion
 		
 		public ModelDataInterfaceDataContext() : 
-				base(global::TheWay1._0.Properties.Settings.Default.TheWayConnectionString, mappingSource)
+				base(global::TheWay1._0.Properties.Settings.Default.TheWay2ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -363,6 +363,8 @@ namespace TheWay1._0
 		
 		private System.Nullable<int> _IdResult;
 		
+		private System.Data.Linq.Binary _ImageBinaryClose;
+		
 		private EntityRef<PAIR> _PAIR;
 		
 		private EntityRef<STATUSS> _STATUSS;
@@ -395,6 +397,8 @@ namespace TheWay1._0
     partial void OnNoteClosedChanged();
     partial void OnIdResultChanging(System.Nullable<int> value);
     partial void OnIdResultChanged();
+    partial void OnImageBinaryCloseChanging(System.Data.Linq.Binary value);
+    partial void OnImageBinaryCloseChanged();
     #endregion
 		
 		public POSITION()
@@ -633,6 +637,26 @@ namespace TheWay1._0
 					this._IdResult = value;
 					this.SendPropertyChanged("IdResult");
 					this.OnIdResultChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageBinaryClose", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary ImageBinaryClose
+		{
+			get
+			{
+				return this._ImageBinaryClose;
+			}
+			set
+			{
+				if ((this._ImageBinaryClose != value))
+				{
+					this.OnImageBinaryCloseChanging(value);
+					this.SendPropertyChanging();
+					this._ImageBinaryClose = value;
+					this.SendPropertyChanged("ImageBinaryClose");
+					this.OnImageBinaryCloseChanged();
 				}
 			}
 		}

@@ -49,8 +49,9 @@ namespace TheWay1._0
                 openFrm.NoteOpen = rtbNoteOpen.Text;
                 openFrm.NoteClosed = "";
                 openFrm.IdResult = 3;
+                
                 OpenFileDialog fop = new OpenFileDialog();
-                fop.InitialDirectory = @"C:\";
+                fop.InitialDirectory = @"D:\project\NhatKyGiaoDich\";
                 fop.Filter = "[png]|*.png";
                 if (fop.ShowDialog() == DialogResult.OK)
                 {
@@ -58,7 +59,7 @@ namespace TheWay1._0
                     byte[] img = new byte[FS.Length];
                     FS.Read(img, 0, Convert.ToInt32(FS.Length));
                     openFrm.ImageBinary = img;
-
+                    openFrm.ImageBinaryClose = img;
                 }
                 db.POSITIONs.InsertOnSubmit(openFrm);
                 db.SubmitChanges();

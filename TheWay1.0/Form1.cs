@@ -14,9 +14,9 @@ namespace TheWay1._0
 {
     public partial class Form1 : Form
     {
-        //public string connection = @"Data Source=SA2WKS0265\SQLEXPRESS;Initial Catalog=TheWay;Integrated Security=True";
-        public string reasonToClose = "";
-        public int idresult;
+        
+      
+        
         public Form1()
         {
             InitializeComponent();
@@ -108,31 +108,14 @@ namespace TheWay1._0
         }
         private void dtgOpenning_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            ModelDataInterfaceDataContext db = new ModelDataInterfaceDataContext(Connection.GetStringConnection());
+            //ModelDataInterfaceDataContext db = new ModelDataInterfaceDataContext(Connection.GetStringConnection());
             if (this.dtgOpenning[e.ColumnIndex, e.RowIndex].Value.ToString() == "Close!")//Closed
             {
                 //Why close
-                Note_Close_Position f = new Note_Close_Position();
-               DialogResult ok = f.ShowDialog();
-                if (reasonToClose != "")
-                {
-                    // f
-                    int vale = Int32.Parse(this.dtgOpenning[0, e.RowIndex].Value.ToString());
-                    var opennings = (from pos in db.POSITIONs
-                                     where pos.ID == vale
-                                     select pos).First();
-                    opennings.IdStatus = 2;
-                    opennings.NoteClosed = reasonToClose;
-                    opennings.IdResult = idresult;
-                    db.SubmitChanges();
-
-                    ///note
-                    //
-                    ResetDataGridview();
-                    LoadOpenningPosition();
-                    LoadClosedPositions();
-                }
-                // var updPos = from table in db.POSITIONs
+                int vale = Int32.Parse(this.dtgOpenning[0, e.RowIndex].Value.ToString());
+                Note_Close_Position f = new Note_Close_Position(vale);
+                DialogResult ok = f.ShowDialog();
+               
             }else if(this.dtgOpenning[e.ColumnIndex, e.RowIndex].Value.ToString() == "See")
             {
                 int vale = Int32.Parse(this.dtgOpenning[0, e.RowIndex].Value.ToString());
@@ -156,8 +139,9 @@ namespace TheWay1._0
             if (this.dtgClosedPosition[e.ColumnIndex, e.RowIndex].Value.ToString() == "See")
             {
                 int vale = Int32.Parse(this.dtgClosedPosition[0, e.RowIndex].Value.ToString());
-                HistoryOfTheTrue fm = new HistoryOfTheTrue(vale,false);
-                fm.Text = "History Of The True " + this.dtgClosedPosition[1, e.RowIndex].Value.ToString() + " " + this.dtgClosedPosition[2, e.RowIndex].Value.ToString();
+                /////other form
+                HistoryOfTheResult fm = new HistoryOfTheResult(vale);
+                fm.Text = "History Of The Result " + this.dtgClosedPosition[1, e.RowIndex].Value.ToString() + " " + this.dtgClosedPosition[2, e.RowIndex].Value.ToString();
                 fm.ShowDialog();
             }
         }

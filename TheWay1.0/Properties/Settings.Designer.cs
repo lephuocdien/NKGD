@@ -55,5 +55,27 @@ namespace TheWay1._0.Properties {
                 return ((string)(this["TheWayConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-C03A2E6\\SQLEXPRESS;Initial Catalog=TheWay;Integrated Security" +
+            "=True")]
+        public string TheWayConnectionString1 {
+            get {
+                return ((string)(this["TheWayConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-C03A2E6\\SQLEXPRESS;Initial Catalog=TheWay2;Integrated Securit" +
+            "y=True")]
+        public string TheWay2ConnectionString {
+            get {
+                return ((string)(this["TheWay2ConnectionString"]));
+            }
+        }
     }
 }
