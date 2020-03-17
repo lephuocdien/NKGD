@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TheWay" Class="ModelDataInterfaceDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SA2WKS0265\SQLEXPRESS;Initial Catalog=TheWay;Integrated Security=True" SettingsObjectName="TheWay1._0.Properties.Settings" SettingsPropertyName="TheWayConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.PAIR" Member="PAIRs">
+    <Type Name="PAIR">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PairName" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="PAIR_POSITION" Member="POSITIONs" ThisKey="ID" OtherKey="IdPair" Type="POSITION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STATUSS" Member="STATUSSes">
+    <Type Name="STATUSS">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StatusName" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="STATUSS_POSITION" Member="POSITIONs" ThisKey="ID" OtherKey="IdStatus" Type="POSITION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.POSITIONS" Member="POSITIONs">
+    <Type Name="POSITION">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdPair" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateOpen" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Entryprice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Stoploss" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TakeProfit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ImageBinary" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NoteOpen" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="NoteClosed" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IdResult" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PAIR_POSITION" Member="PAIR" ThisKey="IdPair" OtherKey="ID" Type="PAIR" IsForeignKey="true" />
+      <Association Name="STATUSS_POSITION" Member="STATUSS" ThisKey="IdStatus" OtherKey="ID" Type="STATUSS" IsForeignKey="true" />
+      <Association Name="RESULT_POSITION" Member="RESULT" ThisKey="IdResult" OtherKey="ID" Type="RESULT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RESULT" Member="RESULTs">
+    <Type Name="RESULT">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameResult" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Association Name="RESULT_POSITION" Member="POSITIONs" ThisKey="ID" OtherKey="IdResult" Type="POSITION" />
+    </Type>
+  </Table>
+</Database>
